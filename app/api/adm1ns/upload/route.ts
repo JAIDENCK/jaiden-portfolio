@@ -1,7 +1,5 @@
 import { put } from "@vercel/blob"
 import { type NextRequest, NextResponse } from "next/server"
-import { checkAdminAuth } from "@/lib/adm1ns-auth"
-
 export async function POST(request: NextRequest) {
   // Check admin authentication
   const isAuthenticated = await checkAdminAuth()

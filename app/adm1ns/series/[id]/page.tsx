@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation"
-import { checkAdminAuth } from "@/lib/adm1ns-auth"
 import { Navigation } from "@/components/navigation"
 import { ImageManager } from "@/components/image-manager"
 import { createClient } from "@/lib/supabase/server"
