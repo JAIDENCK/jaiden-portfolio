@@ -15,7 +15,7 @@ export function ImageManager({ seriesId, initialImages }: ImageManagerProps) {
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const refreshImages = async () => {
-    const response = await fetch(`/api/admin/series/${seriesId}/images`)
+    const response = await fetch(`/api/adm1ns/series/${seriesId}/images`)
     const data = await response.json()
     setImages(data.images || [])
   }
@@ -28,7 +28,7 @@ export function ImageManager({ seriesId, initialImages }: ImageManagerProps) {
     setDeletingId(id)
 
     try {
-      const response = await fetch(`/api/admin/images/${id}`, {
+      const response = await fetch(`/api/adm1ns/images/${id}`, {
         method: "DELETE",
       })
 

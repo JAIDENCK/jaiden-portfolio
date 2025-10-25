@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation"
-import { checkAdminAuth } from "@/lib/admin-auth"
+import { checkAdminAuth } from "@/lib/adm1ns-auth"
 import { Navigation } from "@/components/navigation"
-import { AdminDashboard } from "@/components/admin-dashboard"
+import { AdminDashboard } from "@/components/adm1ns-dashboard"
 import { createClient } from "@/lib/supabase/server"
 
 export const metadata = {

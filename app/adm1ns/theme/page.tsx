@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { checkAdminAuth } from "@/lib/admin-auth"
+import { checkAdminAuth } from "@/lib/adm1ns-auth"
 import { Navigation } from "@/components/navigation"
 import { ThemeEditor } from "@/components/theme-editor"
 import { createClient } from "@/lib/supabase/server"

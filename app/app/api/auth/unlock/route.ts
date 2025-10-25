@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   }
 
   // ✅ Set a secure session cookie
-  const res = NextResponse.redirect(new URL("/admin", req.url));
+  const res = NextResponse.redirect(new URL("/adm1ns", req.url));
   res.cookies.set("session", "1", {
     httpOnly: true,
     secure: true,

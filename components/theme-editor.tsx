@@ -27,7 +27,7 @@ export function ThemeEditor({ initialSettings }: ThemeEditorProps) {
   const handleSave = async () => {
     setSaving(true)
     try {
-      const response = await fetch("/api/admin/settings", {
+      const response = await fetch("/api/adm1ns/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ settings }),
@@ -58,7 +58,7 @@ export function ThemeEditor({ initialSettings }: ThemeEditorProps) {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <Link href="/admin" className="text-[#e50914] hover:text-[#c40812] mb-4 inline-block">
+          <Link href="/adm1ns" className="text-[#e50914] hover:text-[#c40812] mb-4 inline-block">
             ← Back to Dashboard
           </Link>
           <h1 className="text-5xl font-bold text-white mb-4">Theme Settings</h1>

@@ -20,7 +20,7 @@ export function SeriesManager({ series, onRefresh }: SeriesManagerProps) {
     setDeletingId(id)
 
     try {
-      const response = await fetch(`/api/admin/series/${id}`, {
+      const response = await fetch(`/api/adm1ns/series/${id}`, {
         method: "DELETE",
       })
 
@@ -68,7 +68,7 @@ export function SeriesManager({ series, onRefresh }: SeriesManagerProps) {
             {/* Actions */}
             <div className="flex items-center gap-2">
               <Link
-                href={`/admin/series/${item.id}`}
+                href={`/adm1ns/series/${item.id}`}
                 className="flex-1 px-4 py-2 bg-[#1c1c1c] text-white text-sm font-medium rounded-lg hover:bg-[#2a2a2a] transition-colors duration-300 text-center"
               >
                 Manage Images

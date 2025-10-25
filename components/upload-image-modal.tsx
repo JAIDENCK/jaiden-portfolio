@@ -29,7 +29,7 @@ export function UploadImageModal({ seriesId, onClose, onSuccess }: UploadImageMo
         const uploadFormData = new FormData()
         uploadFormData.append("file", file)
 
-        const uploadResponse = await fetch("/api/admin/upload", {
+        const uploadResponse = await fetch("/api/adm1ns/upload", {
           method: "POST",
           body: uploadFormData,
         })
@@ -41,7 +41,7 @@ export function UploadImageModal({ seriesId, onClose, onSuccess }: UploadImageMo
         const { url } = await uploadResponse.json()
 
         // Add image to series
-        await fetch(`/api/admin/series/${seriesId}/images`, {
+        await fetch(`/api/adm1ns/series/${seriesId}/images`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

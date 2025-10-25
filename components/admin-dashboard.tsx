@@ -47,19 +47,19 @@ export function AdminDashboard({ initialSeries }: AdminDashboardProps) {
   }, [series])
 
   const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" })
+    await fetch("/api/adm1ns/logout", { method: "POST" })
     window.location.href = "/"
   }
 
   const refreshSeries = async () => {
-    const response = await fetch("/api/admin/series")
+    const response = await fetch("/api/adm1ns/series")
     const data = await response.json()
     setSeries(data.series || [])
   }
 
   const handleExport = async () => {
     try {
-      const response = await fetch("/api/admin/backup")
+      const response = await fetch("/api/adm1ns/backup")
       const data = await response.json()
 
       const blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -88,7 +88,7 @@ export function AdminDashboard({ initialSeries }: AdminDashboardProps) {
       const text = await file.text()
       const data = JSON.parse(text)
 
-      const response = await fetch("/api/admin/backup", {
+      const response = await fetch("/api/adm1ns/backup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -161,7 +161,7 @@ export function AdminDashboard({ initialSeries }: AdminDashboardProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <Link
-          href="/admin/content"
+          href="/adm1ns/content"
           className="glass p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group"
         >
           <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#e50914] transition-colors">
@@ -170,7 +170,7 @@ export function AdminDashboard({ initialSeries }: AdminDashboardProps) {
           <p className="text-[#999999]">Update hero text, about section, and contact information</p>
         </Link>
 
-        <Link href="/admin/theme" className="glass p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+        <Link href="/adm1ns/theme" className="glass p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group">
           <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#e50914] transition-colors">
             Customize Theme
           </h3>

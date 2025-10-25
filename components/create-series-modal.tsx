@@ -28,7 +28,7 @@ export function CreateSeriesModal({ onClose, onSuccess }: CreateSeriesModalProps
         const uploadFormData = new FormData()
         uploadFormData.append("file", coverImage)
 
-        const uploadResponse = await fetch("/api/admin/upload", {
+        const uploadResponse = await fetch("/api/adm1ns/upload", {
           method: "POST",
           body: uploadFormData,
         })
@@ -42,7 +42,7 @@ export function CreateSeriesModal({ onClose, onSuccess }: CreateSeriesModalProps
       }
 
       // Create series
-      const response = await fetch("/api/admin/series", {
+      const response = await fetch("/api/adm1ns/series", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

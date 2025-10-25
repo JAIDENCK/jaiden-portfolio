@@ -22,7 +22,7 @@ export function PhotoLibrary({ series, onRefresh }: PhotoLibraryProps) {
 
   const fetchPhotos = async () => {
     try {
-      const response = await fetch("/api/admin/photos")
+      const response = await fetch("/api/adm1ns/photos")
       const data = await response.json()
       setPhotos(data.photos || [])
     } catch (error) {
@@ -41,7 +41,7 @@ export function PhotoLibrary({ series, onRefresh }: PhotoLibraryProps) {
         const formData = new FormData()
         formData.append("file", file)
 
-        const uploadResponse = await fetch("/api/admin/upload", {
+        const uploadResponse = await fetch("/api/adm1ns/upload", {
           method: "POST",
           body: formData,
         })
@@ -53,7 +53,7 @@ export function PhotoLibrary({ series, onRefresh }: PhotoLibraryProps) {
         const { url } = await uploadResponse.json()
 
         // Create image without series assignment
-        await fetch("/api/admin/photos", {
+        await fetch("/api/adm1ns/photos", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -78,7 +78,7 @@ export function PhotoLibrary({ series, onRefresh }: PhotoLibraryProps) {
     setAssigningId(photoId)
 
     try {
-      const response = await fetch(`/api/admin/photos/${photoId}/assign`, {
+      const response = await fetch(`/api/adm1ns/photos/${photoId}/assign`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +108,7 @@ export function PhotoLibrary({ series, onRefresh }: PhotoLibraryProps) {
     setDeletingId(id)
 
     try {
-      const response = await fetch(`/api/admin/images/${id}`, {
+      const response = await fetch(`/api/adm1ns/images/${id}`, {
         method: "DELETE",
       })
 

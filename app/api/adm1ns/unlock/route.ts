@@ -1,11 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-export const config = { matcher: ["/admin/:path*"] };
+export const config = { matcher: ["/adm1ns/:path*"] };
 
 export default function middleware(req: NextRequest) {
   try {
     const hasSession = Boolean(req.cookies.get("session")?.value);
-    if (!hasSession && req.nextUrl.pathname.startsWith("/admin")) {
+    if (!hasSession && req.nextUrl.pathname.startsWith("/adm1ns")) {
       const url = new URL("/", req.url);
       url.searchParams.set("auth", "required");
       return NextResponse.redirect(url);

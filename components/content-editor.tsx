@@ -27,7 +27,7 @@ export function ContentEditor({ initialContent }: ContentEditorProps) {
   const handleSave = async () => {
     setSaving(true)
     try {
-      const response = await fetch("/api/admin/content", {
+      const response = await fetch("/api/adm1ns/content", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content }),
@@ -58,7 +58,7 @@ export function ContentEditor({ initialContent }: ContentEditorProps) {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <Link href="/admin" className="text-[#e50914] hover:text-[#c40812] mb-4 inline-block">
+          <Link href="/adm1ns" className="text-[#e50914] hover:text-[#c40812] mb-4 inline-block">
             ← Back to Dashboard
           </Link>
           <h1 className="text-5xl font-bold text-white mb-4">Edit Content</h1>

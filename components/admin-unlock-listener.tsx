@@ -54,7 +54,7 @@ export function AdminUnlockListener() {
       onClose={() => setShowModal(false)}
       onSuccess={() => {
         setShowModal(false)
-        window.location.href = "/admin"
+        window.location.href = "/adm1ns"
       }}
     />
   )
@@ -77,7 +77,7 @@ function AdminLoginModal({
     setLoading(true)
 
     try {
-      const response = await fetch("/api/admin/unlock", {
+      const response = await fetch("/api/adm1ns/unlock", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ passphrase }),

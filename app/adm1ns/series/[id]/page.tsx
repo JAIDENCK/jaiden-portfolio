@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { checkAdminAuth } from "@/lib/admin-auth"
+import { checkAdminAuth } from "@/lib/adm1ns-auth"
 import { Navigation } from "@/components/navigation"
 import { ImageManager } from "@/components/image-manager"
 import { createClient } from "@/lib/supabase/server"
@@ -43,7 +43,7 @@ export default async function AdminSeriesPage({ params }: SeriesPageProps) {
       <section className="pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
           <Link
-            href="/admin"
+            href="/adm1ns"
             className="inline-flex items-center gap-2 text-[#999999] hover:text-white transition-colors duration-300 mb-8"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

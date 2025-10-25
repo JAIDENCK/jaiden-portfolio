@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
-import { checkAdminAuth } from "@/lib/admin-auth"
+import { checkAdminAuth } from "@/lib/adm1ns-auth"
 
 export async function GET() {
   const isAuthenticated = await checkAdminAuth()
