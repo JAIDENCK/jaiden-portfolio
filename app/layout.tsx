@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
-import { AdminUnlockListener } from "@/components/adm1ns-unlock-listener"
 import "./globals.css"
 
 export const metadata: Metadata = {
