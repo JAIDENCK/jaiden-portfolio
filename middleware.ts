@@ -1,10 +1,21 @@
-import { updateSession } from "@/lib/supabase/middleware"
-import type { NextRequest } from "next/server"
-
-export async function middleware(request: NextRequest) {
-  return await updateSession(request)
-}
+import { NextResponse, type NextRequest } from 'next/server';
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"],
+  matcher: ['/admin/:path*'], // only protect /admin pages
+};
+
+export default function middleware(req: NextRequest) {
+  try {
+    const hasSession = Boolean(req.cookies.get('session')?.value);
+
+    if (!hasSession && req.nextUrl.pathname.startsWith('/admin')) {
+      const url = new URL('/', req.url);
+      url.searchParams.set('auth', 'required');
+      return NextResponse.redirect(url);
+    }
+
+    return NextResponse.next();
+  } catch {
+    return NextResponse.next(); // prevent middleware crash
+  }
 }
