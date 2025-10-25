@@ -1,11 +1,12 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
+  async redirects() {
+    return [
+      { source: '/admin', destination: '/adm1ns', permanent: false },
+      { source: '/admin/:path*', destination: '/adm1ns/:path*', permanent: false },
+    ];
   },
-  images: {
-    unoptimized: true,
-  },
-}
+};
 
-export default nextConfig
+export default nextConfig;
