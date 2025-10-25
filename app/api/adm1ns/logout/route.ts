@@ -1,7 +1,15 @@
-import { NextResponse } from "next/server"
-import { clearAdminSession } from "@/lib/adm1ns-auth"
+// app/api/adm1ns/logout/route.ts
+import { NextResponse } from "next/server";
 
 export async function POST() {
-  await clearAdminSession()
-  return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"))
+  const res = NextResponse.json({ ok: true });
+  // delete the session cookie
+  res.cookies.set("session", "", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 0, // expires immediately
+  });
+  return res;
 }
